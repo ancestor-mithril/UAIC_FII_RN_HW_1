@@ -9,6 +9,7 @@ def get_adjugate(matrix: np.ndarray) -> np.ndarray:
     :param matrix: 3 x 3 matrix
     :return: adjugate
     """
+    # return np.linalg.inv(matrix) * np.linalg.det(matrix)
     cofactor = np.zeros((3, 3))
     for i in range(3):
         for j in range(3):
