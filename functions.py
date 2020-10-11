@@ -67,19 +67,7 @@ def get_adjugate(matrix: List[List[float]]) -> List[List[float]]:
     cofactor = [[0, 0, 0], [0, 0, 0], [0, 0, 0]]
     for i in range(3):
         for j in range(3):
-            # minor = [[matrix[row][col] if row != i and col != j else ?? for row in range(3)] for col in range(3)]
-            # ... nu merge intr-o singura linie
-            minor = []
-            ii = 0
-            for row in range(3):
-                if row == i:
-                    continue
-                minor.append([])
-                for col in range(3):
-                    if col == j:
-                        continue
-                    minor[ii].append(matrix[row][col])
-                ii += 1
+            minor = [[matrix[row][col] for row in range(3) if row != i] for col in range(3) if col != j]
             cofactor[i][j] = (-1) ** (i + j) * get_2x2_determinant(minor)
     return get_transpose(cofactor)
 
